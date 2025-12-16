@@ -169,6 +169,26 @@
 			font-size: 16px;
 		}
 	}
+
+	.add-product-button-container {
+		margin-top: 30px;
+		padding: 20px;
+		text-align: center;
+		border: 2px dashed #e0e0e0;
+		border-radius: 4px;
+		background: #fafafa;
+
+		button {
+			font-size: 14px;
+		}
+	}
+
+	// Empty state placeholder
+	.components-placeholder {
+		min-height: 200px;
+		border: 2px dashed #0073aa;
+		background: #f0f6fc;
+	}
 }
 
 /* Inspector Controls Styles */
