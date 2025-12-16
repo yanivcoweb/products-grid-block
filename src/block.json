@@ -1,0 +1,65 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "products-grid-block/products-grid",
+  "version": "1.0.0",
+  "title": "Products Grid",
+  "category": "widgets",
+  "icon": "grid-view",
+  "description": "Display products in a responsive grid layout with images, titles, descriptions, and links.",
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"]
+  },
+  "textdomain": "products-grid-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "attributes": {
+    "products": {
+      "type": "array",
+      "default": [
+        {
+          "id": 1,
+          "title": "Workwear Dispensing Units",
+          "description": "Polytex offers reliable and durable workwear dispensing units with simple card-tap operation.",
+          "imageUrl": "",
+          "imageId": 0,
+          "linkUrl": "#",
+          "linkText": "Learn more"
+        },
+        {
+          "id": 2,
+          "title": "Workwear Tracking",
+          "description": "Workwear tracking capabilities: the accurate and reliable way to improve high-volume workwear management operations.",
+          "imageUrl": "",
+          "imageId": 0,
+          "linkUrl": "#",
+          "linkText": "Learn more"
+        },
+        {
+          "id": 3,
+          "title": "Workwear Return Units",
+          "description": "Polytex offers convenient and space-saving workwear return units for the return and storage of soiled items for dispatch to the laundry service.",
+          "imageUrl": "",
+          "imageId": 0,
+          "linkUrl": "#",
+          "linkText": "Learn more"
+        },
+        {
+          "id": 4,
+          "title": "Total-Care Manager",
+          "description": "Total-Care Manager: monitor and control workwear usage, manage inventory to ensure availability and reduce spending on laundry and stock.",
+          "imageUrl": "",
+          "imageId": 0,
+          "linkUrl": "#",
+          "linkText": "Learn more"
+        }
+      ]
+    },
+    "columns": {
+      "type": "number",
+      "default": 4
+    }
+  }
+}

@@ -1,0 +1,113 @@
+/**
+ * Frontend Styles for Products Grid Block
+ */
+
+.wp-block-products-grid-block-products-grid {
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 20px 0;
+}
+
+.products-grid {
+	display: grid;
+	gap: 30px;
+	grid-template-columns: repeat(4, 1fr);
+	width: 100%;
+
+	@media (max-width: 1200px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@media (max-width: 900px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: 600px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.product-card {
+	display: flex;
+	flex-direction: column;
+	background: #ffffff;
+	border: 1px solid #e0e0e0;
+	border-radius: 0;
+	overflow: hidden;
+	transition: box-shadow 0.3s ease, transform 0.3s ease;
+	position: relative;
+
+	&:hover {
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		transform: translateY(-2px);
+	}
+}
+
+.product-image {
+	width: 100%;
+	height: 250px;
+	overflow: hidden;
+	background-color: #f5f5f5;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		padding: 20px;
+	}
+}
+
+.product-title {
+	font-size: 20px;
+	font-weight: 600;
+	line-height: 1.3;
+	margin: 20px 20px 15px;
+	color: #1a1a1a;
+	min-height: 52px;
+}
+
+.product-description {
+	font-size: 14px;
+	line-height: 1.6;
+	color: #666;
+	margin: 0 20px 20px;
+	flex-grow: 1;
+}
+
+.product-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #0066cc;
+	text-decoration: none;
+	padding: 0 20px 20px;
+	transition: color 0.3s ease, gap 0.3s ease;
+
+	&:hover {
+		color: #004499;
+		gap: 12px;
+
+		.arrow {
+			transform: translateX(4px);
+		}
+	}
+
+	.arrow {
+		font-size: 16px;
+		transition: transform 0.3s ease;
+	}
+}
+
+/* Alignment support */
+.alignwide {
+	max-width: 1200px;
+}
+
+.alignfull {
+	max-width: 100%;
+}
