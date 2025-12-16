@@ -126,8 +126,13 @@ export default function Edit({ attributes, setAttributes }) {
 										<MediaUploadCheck>
 											<MediaUpload
 												onSelect={(media) => {
-													updateProduct(index, 'imageUrl', media.url);
-													updateProduct(index, 'imageId', media.id);
+													const newProducts = [...products];
+													newProducts[index] = {
+														...newProducts[index],
+														imageUrl: media.url,
+														imageId: media.id,
+													};
+													setAttributes({ products: newProducts });
 												}}
 												allowedTypes={['image']}
 												value={product.imageId}
@@ -168,6 +173,7 @@ export default function Edit({ attributes, setAttributes }) {
 										onChange={(value) => updateProduct(index, 'title', value)}
 										placeholder={__('Product Title', 'products-grid-block')}
 										className="product-title"
+										allowedFormats={[]}
 									/>
 
 									<RichText
@@ -178,6 +184,7 @@ export default function Edit({ attributes, setAttributes }) {
 										}
 										placeholder={__('Product Description', 'products-grid-block')}
 										className="product-description"
+										allowedFormats={[]}
 									/>
 
 									<div className="product-link-settings">
