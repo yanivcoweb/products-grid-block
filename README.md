@@ -1,17 +1,19 @@
 # Products Grid Block
 
-A custom WordPress Gutenberg block for displaying products in a responsive grid layout. This plugin allows you to create beautiful product showcases with images, titles, descriptions, and call-to-action links.
+A custom WordPress Gutenberg block for displaying products in a responsive grid layout. This plugin allows you to create beautiful product showcases with images, titles, descriptions, and clickable product cards.
 
 ## Features
 
-- **Responsive Grid Layout**: Automatically adapts to different screen sizes (4 columns on desktop, 3 on tablet, 2 on small tablets, 1 on mobile)
-- **Customizable Columns**: Adjust the number of columns (1-4) from the block settings
+- **Responsive Grid Layout**: CSS class-based responsive design that adapts to all screen sizes
+- **Customizable Columns**: Adjust the number of columns (1-5) from the block settings
+- **Clickable Product Cards**: Entire cards are clickable links for better user experience
 - **Easy Product Management**: Add, remove, and reorder products with intuitive controls
 - **Image Upload**: Upload product images directly from the WordPress Media Library
 - **Rich Text Editing**: Edit titles and descriptions with WordPress's rich text editor
-- **Custom Links**: Add custom URLs and link text for each product
-- **Clean Design**: Professional card-based layout with hover effects
+- **Custom Links**: Each product card links to a custom URL
+- **Clean Design**: Professional card-based layout with hover effects and custom styling
 - **Alignment Support**: Supports wide and full-width alignment options
+- **Empty Start**: Block starts empty, allowing you to build your grid from scratch
 
 ## Requirements
 
@@ -62,64 +64,90 @@ This will watch for changes and automatically rebuild the plugin.
 1. **Add the Block**:
    - In the WordPress block editor, click the '+' button to add a new block
    - Search for "Products Grid" and select it
-   - The block will be inserted with 4 default product cards
+   - The block will be inserted empty, ready for you to add products
 
-2. **Edit Products**:
-   - Click on any product card to edit it
+2. **Add Your First Product**:
+   - Click "Add Your First Product" button
+   - Or use "Add Product" in the block settings sidebar
+
+3. **Edit Products**:
    - **Upload Image**: Click "Upload Image" to select an image from your Media Library
    - **Edit Title**: Click on the title to edit it
    - **Edit Description**: Click on the description to edit the product details
-   - **Set Link**: Use the Link URL and Link Text fields in the sidebar to set the product's call-to-action link
+   - **Set Link**: Use the Link URL and Link Text fields to set where the product card links to
 
-3. **Manage Products**:
-   - **Add Product**: Click "Add Product" in the block settings sidebar
+4. **Manage Products**:
+   - **Add More Products**: Click "Add Another Product" button below the grid
    - **Remove Product**: Click the trash icon on any product card
    - **Reorder Products**: Use the up/down arrow buttons to change the order
 
-4. **Adjust Grid Settings**:
+5. **Adjust Grid Settings**:
    - Open the block settings sidebar (right panel)
-   - Use the "Columns" slider to adjust the number of columns (1-4)
+   - Use the "Columns" slider to adjust the number of columns (1-5)
 
-5. **Alignment**:
+6. **Alignment**:
    - Use the block toolbar to set alignment (wide or full-width)
+
+## Responsive Design
+
+The grid uses CSS classes for responsive behavior:
+
+- **columns-1**: 1 column on all screen sizes
+- **columns-2**: 2 columns on desktop, 1 on mobile (< 600px)
+- **columns-3**: 3 columns on desktop, 2 on tablet (< 900px), 1 on mobile (< 600px)
+- **columns-4**: 4 columns on desktop, 3 on tablet (< 1200px), 2 on medium (< 900px), 1 on mobile (< 600px)
+- **columns-5**: 5 columns on desktop, 3 on tablet (< 1200px), 2 on medium (< 900px), 1 on mobile (< 600px)
 
 ## Block Structure
 
 The plugin creates a responsive grid layout with the following structure:
 
-- **Grid Container**: Responsive CSS Grid layout
-- **Product Cards**: Individual cards containing:
+- **Grid Container**: Responsive CSS Grid layout using CSS classes
+- **Product Cards**: Clickable cards (entire card is a link) containing:
   - Product image
-  - Product title (h3)
+  - Product title (h3) with custom border styling
   - Product description (paragraph)
-  - "Learn more" link with arrow
+  - Link text display with button styling
 
 ## Customization
 
 ### Styling
 
-You can customize the appearance by adding CSS to your theme:
+The plugin uses CSS classes for easy customization. You can override styles in your theme:
 
 ```css
-/* Customize card background */
+/* Customize card appearance */
 .product-card {
-    background: #f9f9f9;
+    padding: 2rem;
+    border-top: 5px solid #your-color;
 }
 
-/* Customize title color */
+/* Customize title border color */
 .product-title {
-    color: #333;
+    border-bottom-color: #your-color;
+    color: #your-color;
 }
 
-/* Customize link color */
-.product-link {
-    color: #0066cc;
+/* Customize grid gap */
+.products-grid {
+    gap: 20px;
+}
+
+/* Customize link button */
+.product-link.button__minimal {
+    color: #your-color;
 }
 ```
 
-### Modifying Default Products
+### CSS Variables
 
-Edit `src/block.json` to change the default products that appear when the block is first added.
+The plugin uses CSS custom properties that you can override:
+
+```css
+:root {
+    --orange: #your-brand-color;
+}
+```
 
 ## Development
 
@@ -132,9 +160,9 @@ products-grid-block/
 │   ├── block.json         # Block metadata and attributes
 │   ├── index.js           # Block registration
 │   ├── edit.js            # Block editor component
-│   ├── save.js            # Block save component
-│   ├── style.scss         # Frontend styles
-│   └── editor.scss        # Editor styles
+│   ├── save.js            # Block save component (frontend)
+│   ├── style.scss         # Frontend styles with responsive CSS classes
+│   └── editor.scss        # Editor-only styles
 ├── products-grid-block.php # Main plugin file
 ├── package.json           # Node.js dependencies
 └── README.md             # This file
@@ -149,14 +177,12 @@ products-grid-block/
 - `npm run lint:js` - Lint JavaScript files
 - `npm run plugin-zip` - Create a distributable ZIP file
 
-## Screenshots
+### Technical Implementation
 
-The plugin creates a professional grid layout similar to the reference design, featuring:
-- Clean, card-based product display
-- High-quality product images
-- Clear titles and descriptions
-- Prominent call-to-action links
-- Smooth hover effects
+- **No inline styles**: Uses CSS classes (columns-1 to columns-5) for responsive design
+- **Clickable cards**: Entire product card is wrapped in an `<a>` tag for better UX
+- **CSS Grid**: Modern CSS Grid layout with responsive breakpoints
+- **WordPress best practices**: Follows WordPress Gutenberg block development standards
 
 ## Support
 
@@ -171,9 +197,14 @@ This plugin is licensed under the GPL v2 or later.
 
 ### 1.0.0
 - Initial release
-- Responsive grid layout (1-4 columns)
-- Image upload support
-- Rich text editing for titles and descriptions
+- Responsive grid layout (1-5 columns)
+- CSS class-based responsive design (no inline styles)
+- Clickable product cards for better user experience
+- Image upload support with proper state management
+- Rich text editing for titles and descriptions (plain text only)
 - Custom links for each product
 - Add, remove, and reorder products
+- Empty block start state with intuitive add product flow
 - Wide and full-width alignment support
+- Custom styling with hover effects and borders
+- Professional card design with shadows and spacing
