@@ -12,7 +12,7 @@ export default function save({ attributes }) {
 				}}
 			>
 				{products.map((product) => (
-					<div key={product.id} className="product-card">
+					<a href={product.linkUrl} key={product.id} className="product-card">
 						{product.imageUrl && (
 							<div className="product-image">
 								<img src={product.imageUrl} alt={product.title} />
@@ -31,11 +31,10 @@ export default function save({ attributes }) {
 							className="product-description"
 						/>
 
-						<a href={product.linkUrl} className="product-link">
+						<div className="product-link button button__minimal">
 							{product.linkText}
-							<span className="arrow">→</span>
-						</a>
-					</div>
+						</div>
+					</a>
 				))}
 			</div>
 		</div>
