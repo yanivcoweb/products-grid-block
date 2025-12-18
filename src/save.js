@@ -8,7 +8,7 @@ export default function save({ attributes }) {
 			<div
 				className="products-grid"
 				style={{
-					gridTemplateColumns: `repeat(${columns}, 1fr)`,
+					'--columns': columns,
 				}}
 			>
 				{products.map((product) => (
