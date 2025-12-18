@@ -64,7 +64,7 @@ export default function Edit({ attributes, setAttributes }) {
 						value={columns}
 						onChange={(value) => setAttributes({ columns: value })}
 						min={1}
-						max={12}
+						max={5}
 					/>
 				</PanelBody>
 				<PanelBody
@@ -96,7 +96,7 @@ export default function Edit({ attributes, setAttributes }) {
 						<div
 							className="products-grid"
 							style={{
-								gridTemplateColumns: `repeat(${columns}, 1fr)`,
+								'--columns': columns,
 							}}
 						>
 							{products.map((product, index) => (
