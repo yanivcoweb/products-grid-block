@@ -5,12 +5,7 @@ export default function save({ attributes }) {
 
 	return (
 		<div {...useBlockProps.save()}>
-			<div
-				className="products-grid"
-				style={{
-					'--columns': columns,
-				}}
-			>
+			<div className={`products-grid columns-${columns}`}>
 				{products.map((product) => (
 					<div key={product.id} className="product-card">
 						{product.imageUrl && (

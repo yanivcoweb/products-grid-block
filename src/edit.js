@@ -93,12 +93,7 @@ export default function Edit({ attributes, setAttributes }) {
 					</Placeholder>
 				) : (
 					<>
-						<div
-							className="products-grid"
-							style={{
-								'--columns': columns,
-							}}
-						>
+						<div className={`products-grid columns-${columns}`}>
 							{products.map((product, index) => (
 								<div key={product.id} className="product-card">
 									<div className="product-card-controls">

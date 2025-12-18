@@ -7,7 +7,12 @@
 		display: grid;
 		gap: 30px;
 		width: 100%;
-		grid-template-columns: repeat(var(--columns, 4), 1fr);
+
+		&.columns-1 { grid-template-columns: 1fr; }
+		&.columns-2 { grid-template-columns: repeat(2, 1fr); }
+		&.columns-3 { grid-template-columns: repeat(3, 1fr); }
+		&.columns-4 { grid-template-columns: repeat(4, 1fr); }
+		&.columns-5 { grid-template-columns: repeat(5, 1fr); }
 	}
 
 	.product-card {
