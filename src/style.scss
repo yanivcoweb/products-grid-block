@@ -115,20 +115,22 @@
 	padding-top: 0;
 	padding-bottom: 1rem;
 	border-bottom: 1px solid var(--orange);
-	color: #0f3562;
+	color: var(--blue);
 	font-size: 1.45rem;
 }
 
 .product-description {
-	font-size: 14px;
-	line-height: 1.6;
-	color: #666;
 	flex-grow: 1;
+	color: var(--blue);
+	font-family: "DrescherGrotesk-Small", Lato, Lucida Grande, Lucida Sans Unicode, Tahoma, Sans-Serif;
+	font-weight: 500;
+	font-size: 0.937rem;
+	line-height: 1.6;
 }
 
 .product-link.button__minimal {
 	margin-top: 1.5rem;
-	color: #0f3562;
+	color: var(--blue);
 	text-align: right;
 	transition: color 0.3s ease, gap 0.3s ease;
 }
